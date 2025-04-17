@@ -13,7 +13,6 @@ export default function ProductCard({ product }: { product: Product }) {
         height={300}
         className="object-cover h-64 w-full rounded-md"
       />
-      {/* <p>{product.images[0]}</p> */}
       <h2 className="font-bold text-lg mt-2">{product.title}</h2>
       <p className="text-gray-600 mt-1">{product.description}</p>
       <p className="text-primary font-semibold">${product.price}</p>
