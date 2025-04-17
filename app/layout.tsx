@@ -2,7 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Fincart E-commerce",
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={` ${nunito.className}`}>
         <Navbar />
         <main className="container mx-auto px-4 py-8">{children}</main>
+        <Footer />
       </body>
     </html>
   );
