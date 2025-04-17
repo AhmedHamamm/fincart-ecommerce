@@ -3,11 +3,12 @@
 import React from "react";
 import { useProducts } from "@/hooks/useProducts";
 import ProductCard from "./ProductCard";
+import Loader from "../Loader";
 
-const ProductList = () => {
+export default function ProductList() {
   const { products, loading, error, loadMore, hasMore } = useProducts();
 
-  if (loading && products.length === 0) return <p>Loading products...</p>;
+  if (loading && products.length === 0) return <Loader type="inline" />;
   if (error) return <p>Error: {error}</p>;
 
   return (
@@ -25,12 +26,10 @@ const ProductList = () => {
           </button>
         ) : (
           <p className="text-gray-500">
-            {loading ? "Loading more products..." : "No More Products"}
+            {loading ? <Loader type="inline" /> : "No More Products"}
           </p>
         )}
       </div>
     </div>
   );
-};
-
-export default ProductList;
+}
