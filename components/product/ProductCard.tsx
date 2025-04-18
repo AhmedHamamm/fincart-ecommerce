@@ -39,13 +39,14 @@ const ProductCard = memo(
           <p className="text-primary font-semibold">${product.price}</p>
           <button
             onClick={() => addItem(product)}
-            className={`p-2 cursor-pointer rounded-full transition  ${
+            className={`px-4 py-2 cursor-pointer rounded-full transition-all duration-200 flex items-center gap-2 font-medium ${
               isInCart
-                ? "bg-green-100 text-green-600 hover:bg-green-200"
-                : "bg-gray-200 text-black hover:bg-gray/90"
+                ? "bg-green-100 text-green-600 hover:bg-green-200 hover:scale-105"
+                : "bg-gray-200 text-black hover:bg-gray/90 hover:scale-105 active:scale-95"
             }`}
           >
-            <ShoppingCart size={20} />
+            {isInCart ? "In Cart" : "Add to Cart"}
+            <ShoppingCart className="w-5 h-5" />
           </button>
         </div>
       </div>
