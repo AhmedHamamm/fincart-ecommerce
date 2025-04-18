@@ -20,9 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={` ${nunito.className}`}>
+      <body className={`min-h-screen ${nunito.className}`}>
         <Navbar />
-        <main className="container mx-auto px-4 py-8">{children}</main>
+        <main className="container mx-auto mb-12 px-4 py-8">{children}</main>
         <Footer />
       </body>
     </html>
