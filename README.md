@@ -1,4 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fincart E-commerce Project
+
+A modern e-commerce product listing application built with Next.js, TypeScript, and Zustand, featuring a responsive design, efficient state management, and optimized performance.
+
+## Live Preview
+
+Check out the live application: [Fincart E-commerce](https://fincart-ecommerce.vercel.app/)
+
+## Features
+
+### 1. Product Listing
+
+- Fetches product data from the Platzi Fake Store API
+- Implements infinite scrolling for optimal performance
+- Displays products in a responsive grid layout
+- Handles loading and error states gracefully
+
+### 2. Shopping Cart
+
+- Add/remove products from cart with real-time updates
+- Persistent cart state across page reloads using LocalStorage
+- Dynamic cart summary showing item count and total price
+- Dedicated cart page for managing items
+
+### 3. State Management & Performance
+
+- Efficient state management using Zustand
+- Optimized component re-renders
+- Type-safe implementation with TypeScript
+- Custom hooks for reusable logic
+
+### 4. Search & Filtering
+
+- Category-based filtering
+- Search functionality with debounced API calls
+- Optimized search experience
+- Combined filters for enhanced product discovery
+
+### 5. Project Structure
+
+```
+├── app/                    # Next.js app directory
+├── components/
+│   ├── cart/              # Cart-related components
+│   ├── layout/            # Layout components (Navbar, Footer)
+│   ├── product/           # Product-related components
+│   ├── skeletons/         # Loading skeleton components
+│   └── ui/                # Reusable UI components
+├── hooks/                 # Custom React hooks
+├── store/                 # Zustand store configurations
+└── types/                 # TypeScript type definitions
+```
+
+## Tech Stack
+
+- **Framework**: Next.js
+- **Language**: TypeScript
+- **State Management**: Zustand
+- **Styling**: Tailwind CSS
 
 ## Getting Started
 
@@ -8,29 +66,6 @@ First, run the development server:
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
