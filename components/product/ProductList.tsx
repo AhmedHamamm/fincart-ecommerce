@@ -7,6 +7,7 @@ import ProductCard from "./ProductCard";
 import SearchAndFilter from "./SearchAndFilter";
 import { Loader as LoaderIcon } from "lucide-react";
 import ProductSkeleton from "../skeletons/ProductSkeleton";
+import LoadMoreBtn from "../ui/loadMoreBtn";
 
 export default function ProductList() {
   const loadMoreRef = useRef<HTMLButtonElement>(null);
@@ -15,7 +16,6 @@ export default function ProductList() {
   const {
     products,
     loading,
-    error,
     loadMore,
     hasMore,
     searchQuery,
@@ -112,16 +112,7 @@ export default function ProductList() {
       </div>
 
       {!loading && hasMore && products.length > 0 && (
-        <div className="flex justify-center mt-8">
-          <button
-            ref={loadMoreRef}
-            onClick={loadMore}
-            className="bg-black text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition flex items-center gap-2 group"
-          >
-            Load More
-            <LoaderIcon className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </button>
-        </div>
+        <LoadMoreBtn ref={loadMoreRef} onClick={loadMore} isLoading={loading} />
       )}
 
       {!hasMore && products.length > 0 && (
