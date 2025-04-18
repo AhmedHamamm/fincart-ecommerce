@@ -2,18 +2,8 @@
 
 import { useEffect, useState, useCallback, useMemo, useRef } from "react";
 import axios, { AxiosError } from "axios";
-import type { Product } from "@/types";
+import type { Product, Cache, CacheEntry } from "@/types";
 import { useDebounce } from "@/hooks/useDebounce";
-
-interface CacheEntry {
-  data: Product[];
-  timestamp: number;
-  hasMore: boolean;
-}
-
-interface Cache {
-  [key: string]: CacheEntry;
-}
 
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 

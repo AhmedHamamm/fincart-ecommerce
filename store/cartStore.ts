@@ -1,20 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { Product } from "@/types";
-
-interface CartItem extends Product {
-  quantity: number;
-}
-
-interface CartStore {
-  items: CartItem[];
-  addItem: (product: Product) => void;
-  removeItem: (productId: number) => void;
-  updateQuantity: (productId: number, quantity: number) => void;
-  clearCart: () => void;
-  getTotalItems: () => number;
-  getTotalPrice: () => number;
-}
+import type { CartStore } from "@/types";
 
 export const useCartStore = create<CartStore>()(
   persist(

@@ -1,10 +1,6 @@
 import { LoaderIcon } from "lucide-react";
 import { forwardRef } from "react";
-
-interface LoadMoreBtnProps {
-  onClick: () => void;
-  isLoading?: boolean;
-}
+import type { LoadMoreBtnProps } from "@/types";
 
 const LoadMoreBtn = forwardRef<HTMLButtonElement, LoadMoreBtnProps>(
   ({ onClick, isLoading }, ref) => {

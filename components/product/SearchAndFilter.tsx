@@ -2,14 +2,7 @@
 
 import { Search } from "lucide-react";
 import { memo } from "react";
-
-interface SearchAndFilterProps {
-  searchQuery: string;
-  onSearchChange: (query: string) => void;
-  category: string;
-  onCategoryChange: (category: string) => void;
-  categories: { id: string; name: string }[];
-}
+import type { SearchAndFilterProps } from "@/types";
 
 const SearchAndFilter = memo(
   ({

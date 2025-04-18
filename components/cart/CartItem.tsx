@@ -3,14 +3,10 @@
 import Image from "next/image";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { memo } from "react";
-import type { Product } from "@/types";
+import type { CartItemProps } from "@/types";
 import { useCartStore } from "@/store/cartStore";
 
-interface CartItemType extends Product {
-  quantity: number;
-}
-
-const CartItem = memo(({ item }: { item: CartItemType }) => {
+const CartItem = memo(({ item }: CartItemProps) => {
   const { updateQuantity, removeItem } = useCartStore();
 
   return (

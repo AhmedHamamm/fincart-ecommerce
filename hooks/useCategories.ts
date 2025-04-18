@@ -2,16 +2,7 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-
-interface Category {
-  id: string;
-  name: string;
-}
-
-interface APICategory {
-  id: number;
-  name: string;
-}
+import type { Category, APICategory } from "@/types";
 
 export const useCategories = () => {
   const [categories, setCategories] = useState<Category[]>([]);

@@ -1,14 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import type { Product } from "@/types";
+import type { ProductCardProps } from "@/types";
 import { useCartStore } from "@/store/cartStore";
 import { ShoppingCart } from "lucide-react";
 import { memo } from "react";
-
-interface ProductCardProps {
-  product: Product;
-}
 
 const ProductCard = memo(
   ({ product }: ProductCardProps) => {
