@@ -43,7 +43,7 @@ const ProductCard = memo(
           <p className="text-primary font-semibold">${product.price}</p>
           <button
             onClick={() => addItem(product)}
-            className={`p-2 co rounded-full transition ${
+            className={`p-2 cursor-pointer rounded-full transition  ${
               isInCart
                 ? "bg-green-100 text-green-600 hover:bg-green-200"
                 : "bg-gray-200 text-black hover:bg-gray/90"

@@ -81,7 +81,7 @@ export default function ProductList() {
                 setSearchQuery("");
                 setCategory("");
               }}
-              className="text-primary hover:underline text-sm"
+              className="text-primary cursor-pointer hover:underline text-sm"
             >
               Clear all filters
             </button>

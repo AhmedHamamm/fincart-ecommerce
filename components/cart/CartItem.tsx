@@ -14,7 +14,7 @@ const CartItem = memo(({ item }: { item: CartItemType }) => {
   const { updateQuantity, removeItem } = useCartStore();
 
   return (
-    <div className="flex items-center gap-4 py-4 border-b hover:bg-gray-50 transition-colors">
+    <div className="flex items-center gap-4 p-4 border-b hover:bg-gray-50 transition-colors">
       <Image
         src={item.images[0]}
         alt={item.title}
@@ -30,7 +30,7 @@ const CartItem = memo(({ item }: { item: CartItemType }) => {
             onClick={() =>
               updateQuantity(item.id, Math.max(0, item.quantity - 1))
             }
-            className="p-1.5 hover:bg-gray-100 rounded-md transition-colors"
+            className="p-1.5 cursor-pointer hover:bg-gray-100 rounded-md transition-colors"
             aria-label="Decrease quantity"
           >
             <Minus size={16} />
@@ -38,7 +38,7 @@ const CartItem = memo(({ item }: { item: CartItemType }) => {
           <span className="w-8 text-center font-medium">{item.quantity}</span>
           <button
             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-            className="p-1.5 hover:bg-gray-100 rounded-md transition-colors"
+            className="p-1.5 cursor-pointer hover:bg-gray-100 rounded-md transition-colors"
             aria-label="Increase quantity"
           >
             <Plus size={16} />
@@ -47,7 +47,7 @@ const CartItem = memo(({ item }: { item: CartItemType }) => {
       </div>
       <button
         onClick={() => removeItem(item.id)}
-        className="p-2 hover:bg-red-50 rounded-md text-red-500 ml-2 transition-colors"
+        className="p-2 cursor-pointer hover:bg-red-50 rounded-md text-red-500 ml-2 transition-colors"
         aria-label="Remove item"
       >
         <Trash2 size={18} />

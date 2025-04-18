@@ -30,7 +30,7 @@ export default function Cart() {
         <h1 className="text-2xl font-bold">Your Cart</h1>
         <button
           onClick={clearCart}
-          className="flex items-center gap-2 px-4 py-2 text-red-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+          className="flex items-center gap-2 px-4 py-2 text-red-500 cursor-pointer hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
           aria-label="Delete all items"
         >
           <Trash2 size={20} />
@@ -49,7 +49,7 @@ export default function Cart() {
               <span>Total</span>
               <span>${getTotalPrice().toFixed(2)}</span>
             </div>
-            <button className="w-full bg-green-700 text-white py-3.5 rounded-lg hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none transition-all duration-200 font-medium text-lg shadow-sm hover:shadow">
+            <button className="w-full bg-green-700 text-white py-3.5 rounded-lg cursor-pointer hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none transition-all duration-200 font-medium text-lg shadow-sm hover:shadow">
               Proceed to Checkout
             </button>
           </div>

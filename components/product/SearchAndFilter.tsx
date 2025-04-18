@@ -35,7 +35,7 @@ const SearchAndFilter = memo(
           <select
             value={category}
             onChange={(e) => onCategoryChange(e.target.value)}
-            className="w-full appearance-none p-2 pl-4 pr-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white"
+            className="w-full cursor-pointer appearance-none p-2 pl-4 pr-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white"
             aria-label="Filter by category"
           >
             <option value="">All Categories</option>
