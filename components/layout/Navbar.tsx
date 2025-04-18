@@ -3,9 +3,15 @@
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
+  const [mounted, setMounted] = useState(false);
   const totalItems = useCartStore((state) => state.getTotalItems());
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header className="shadow sticky top-0 z-50 bg-white">
@@ -16,7 +22,7 @@ export default function Navbar() {
         <div className="flex items-center gap-6">
           <Link href="/cart" className="relative">
             <ShoppingCart color="black" />
-            {totalItems > 0 && (
+            {mounted && totalItems > 0 && (
               <span className="absolute -top-2 -right-2 bg-green-700 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                 {totalItems}
               </span>

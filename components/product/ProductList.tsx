@@ -75,17 +75,15 @@ export default function ProductList() {
       <div className="col-span-full text-center py-10">
         <div className="inline-block p-6 bg-white rounded-lg shadow-sm">
           <p className="text-gray-500 mb-2">{message}</p>
-          {products.length !== 0 && (
-            <button
-              onClick={() => {
-                setSearchQuery("");
-                setCategory("");
-              }}
-              className="text-primary cursor-pointer hover:underline text-sm"
-            >
-              Clear all filters
-            </button>
-          )}
+          <button
+            onClick={() => {
+              setSearchQuery("");
+              setCategory("");
+            }}
+            className="text-primary cursor-pointer hover:underline text-sm"
+          >
+            Clear all filters
+          </button>
         </div>
       </div>
     );
