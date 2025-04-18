@@ -3,13 +3,12 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import { useProducts } from "@/hooks/useProducts";
 import { useCategories } from "@/hooks/useCategories";
-import { useRenderCount } from "@/hooks/useRenderCount";
 import ProductCard from "./ProductCard";
 import SearchAndFilter from "./SearchAndFilter";
 import { Loader as LoaderIcon } from "lucide-react";
+import ProductSkeleton from "../skeletons/ProductSkeleton";
 
 export default function ProductList() {
-  useRenderCount("ProductList");
   const loadMoreRef = useRef<HTMLButtonElement>(null);
 
   const { categories } = useCategories();
@@ -49,6 +48,12 @@ export default function ProductList() {
   }, [loading, products.length]);
 
   const renderProducts = () => {
+    if (loading && products.length === 0) {
+      return Array.from({ length: 6 }).map((_, index) => (
+        <ProductSkeleton key={`skeleton-${index}`} />
+      ));
+    }
+
     return products.map((product) => (
       <ProductCard key={product.id} product={product} />
     ));
@@ -70,15 +75,17 @@ export default function ProductList() {
       <div className="col-span-full text-center py-10">
         <div className="inline-block p-6 bg-white rounded-lg shadow-sm">
           <p className="text-gray-500 mb-2">{message}</p>
-          <button
-            onClick={() => {
-              setSearchQuery("");
-              setCategory("");
-            }}
-            className="text-primary hover:underline text-sm"
-          >
-            Clear all filters
-          </button>
+          {products.length !== 0 && (
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setCategory("");
+              }}
+              className="text-primary hover:underline text-sm"
+            >
+              Clear all filters
+            </button>
+          )}
         </div>
       </div>
     );
