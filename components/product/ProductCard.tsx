@@ -5,7 +5,6 @@ import type { Product } from "@/types";
 import { useCartStore } from "@/store/cartStore";
 import { ShoppingCart } from "lucide-react";
 import { memo } from "react";
-import { useRenderCount } from "@/hooks/useRenderCount";
 
 interface ProductCardProps {
   product: Product;
@@ -13,8 +12,6 @@ interface ProductCardProps {
 
 const ProductCard = memo(
   ({ product }: ProductCardProps) => {
-    useRenderCount(`ProductCard-${product.id}`);
-
     const addItem = useCartStore((state) => state.addItem);
     const items = useCartStore((state) => state.items);
 

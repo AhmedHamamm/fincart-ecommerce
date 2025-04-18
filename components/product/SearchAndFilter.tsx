@@ -2,7 +2,6 @@
 
 import { Search } from "lucide-react";
 import { memo } from "react";
-import { useRenderCount } from "@/hooks/useRenderCount";
 
 interface SearchAndFilterProps {
   searchQuery: string;
@@ -20,8 +19,6 @@ const SearchAndFilter = memo(
     onCategoryChange,
     categories,
   }: SearchAndFilterProps) => {
-    useRenderCount("SearchAndFilter");
-
     return (
       <div className="flex flex-col md:flex-row gap-4 mb-6">
         <div className="relative flex-1">

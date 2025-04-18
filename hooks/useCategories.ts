@@ -25,9 +25,9 @@ export const useCategories = () => {
         const response = await axios.get<APICategory[]>(
           "https://api.escuelajs.co/api/v1/categories"
         );
-        const categoriesData = response.data.map((cat) => ({
-          id: String(cat.id),
-          name: cat.name,
+        const categoriesData = response.data.map((category) => ({
+          id: String(category.id),
+          name: category.name,
         }));
         setCategories(categoriesData);
         setError(null);
