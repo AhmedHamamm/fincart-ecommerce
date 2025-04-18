@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback } from "react";
 import { useProducts } from "@/hooks/useProducts";
 import { useCategories } from "@/hooks/useCategories";
 import ProductCard from "./ProductCard";
@@ -10,8 +10,6 @@ import ProductSkeleton from "../skeletons/ProductSkeleton";
 import LoadMoreBtn from "../ui/loadMoreBtn";
 
 export default function ProductList() {
-  const loadMoreRef = useRef<HTMLButtonElement>(null);
-
   const { categories } = useCategories();
   const {
     products,
@@ -37,15 +35,6 @@ export default function ProductList() {
     },
     [setCategory]
   );
-
-  useEffect(() => {
-    if (!loading && loadMoreRef.current) {
-      loadMoreRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-      });
-    }
-  }, [loading, products.length]);
 
   const renderProducts = () => {
     if (loading && products.length === 0) {
@@ -110,7 +99,7 @@ export default function ProductList() {
       </div>
 
       {!loading && hasMore && products.length > 0 && (
-        <LoadMoreBtn ref={loadMoreRef} onClick={loadMore} isLoading={loading} />
+        <LoadMoreBtn onClick={loadMore} isLoading={loading} />
       )}
 
       {!hasMore && products.length > 0 && (
