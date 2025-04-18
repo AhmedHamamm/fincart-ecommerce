@@ -62,14 +62,14 @@ export default function ProductList() {
   const renderEmptyState = () => {
     if (loading) return null;
 
-    let message = "No products found";
-    if (searchQuery && category) {
-      message = `No products found matching "${searchQuery}" in this category`;
-    } else if (searchQuery) {
-      message = `No products found matching "${searchQuery}"`;
-    } else if (category) {
-      message = "No products found in this category";
-    }
+    const message =
+      searchQuery && category
+        ? `No products found matching "${searchQuery}" in this category`
+        : searchQuery
+        ? `No products found matching "${searchQuery}"`
+        : category
+        ? "No products found in this category"
+        : "No products found";
 
     return (
       <div className="col-span-full text-center py-10">

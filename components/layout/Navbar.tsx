@@ -17,7 +17,7 @@ export default function Navbar() {
           <Link href="/cart" className="relative">
             <ShoppingCart color="black" />
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-blue-700 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 bg-green-700 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                 {totalItems}
               </span>
             )}

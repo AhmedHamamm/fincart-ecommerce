@@ -1,75 +1,21 @@
 "use client";
 
 import { useCartStore } from "@/store/cartStore";
-import Image from "next/image";
 import Link from "next/link";
-import { Minus, Plus, Trash2, MoveRight } from "lucide-react";
-import { memo } from "react";
-import type { Product } from "@/types";
-
-interface CartItemType extends Product {
-  quantity: number;
-}
-
-const CartItem = memo(({ item }: { item: CartItemType }) => {
-  const { updateQuantity, removeItem } = useCartStore();
-
-  return (
-    <div className="flex items-center gap-4 py-4 border-b">
-      <Image
-        src={item.images[0]}
-        alt={item.title}
-        width={100}
-        height={100}
-        className="object-cover rounded"
-      />
-      <div className="flex-1">
-        <h3 className="font-semibold">{item.title}</h3>
-        <p className="text-gray-600">${item.price}</p>
-      </div>
-      <div className="flex items-center gap-2">
-        <button
-          onClick={() =>
-            updateQuantity(item.id, Math.max(0, item.quantity - 1))
-          }
-          className="p-1 hover:bg-gray-100 rounded"
-          aria-label="Decrease quantity"
-        >
-          <Minus size={16} />
-        </button>
-        <span className="w-8 text-center">{item.quantity}</span>
-        <button
-          onClick={() => updateQuantity(item.id, item.quantity + 1)}
-          className="p-1 hover:bg-gray-100 rounded"
-          aria-label="Increase quantity"
-        >
-          <Plus size={16} />
-        </button>
-        <button
-          onClick={() => removeItem(item.id)}
-          className="p-1 hover:bg-gray-100 rounded text-red-500 ml-2"
-          aria-label="Remove item"
-        >
-          <Trash2 size={16} />
-        </button>
-      </div>
-    </div>
-  );
-});
-
-CartItem.displayName = "CartItem";
+import { MoveRight, Trash2 } from "lucide-react";
+import CartItem from "@/components/cart/CartItem";
 
 export default function Cart() {
-  const { items, getTotalPrice } = useCartStore();
+  const { items, getTotalPrice, clearCart } = useCartStore();
 
   if (items.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen">
+      <div className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)]">
         <h1 className="text-2xl font-bold mb-4">Your Cart</h1>
-        <p className="text-gray-600">Your cart is currently empty.</p>
+        <p className="text-gray-600 mb-6">Your cart is currently empty.</p>
         <Link
           href="/"
-          className="mt-4 flex items-center gap-2 text-primary hover:text-primary/80 transition-colors group"
+          className="inline-flex items-center gap-2 text-white bg-green-700 hover:bg-green-800 px-6 py-3 rounded-lg transition-colors group font-medium"
         >
           Continue Shopping
           <MoveRight className="transform group-hover:translate-x-1 transition-transform duration-200" />
@@ -80,18 +26,30 @@ export default function Cart() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-8">Your Cart</h1>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-2xl font-bold">Your Cart</h1>
+        <button
+          onClick={clearCart}
+          className="flex items-center gap-2 px-4 py-2 text-red-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+          aria-label="Delete all items"
+        >
+          <Trash2 size={20} />
+          Delete All
+        </button>
+      </div>
       <div className="max-w-3xl mx-auto">
-        <div className="bg-white rounded-lg shadow p-6">
-          {items.map((item) => (
-            <CartItem key={item.id} item={item} />
-          ))}
-          <div className="mt-6 pt-6 border-t">
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <div className="divide-y">
+            {items.map((item) => (
+              <CartItem key={item.id} item={item} />
+            ))}
+          </div>
+          <div className="mt-6 pt-6 border-t space-y-4">
             <div className="flex justify-between items-center text-lg font-semibold">
               <span>Total</span>
               <span>${getTotalPrice().toFixed(2)}</span>
             </div>
-            <button className="w-full mt-4 bg-primary text-white py-3 rounded-lg hover:bg-primary/90 transition">
+            <button className="w-full bg-green-700 text-white py-3.5 rounded-lg hover:bg-green-800 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none transition-all duration-200 font-medium text-lg shadow-sm hover:shadow">
               Proceed to Checkout
             </button>
           </div>

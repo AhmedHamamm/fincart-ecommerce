@@ -29,7 +29,7 @@ const ProductCard = memo(
             loading="lazy"
           />
           {isInCart && (
-            <div className="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs">
+            <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">
               <span className="font-bold mr-1">
                 {items.find((item) => item.id === product.id)?.quantity}
               </span>
@@ -45,7 +45,7 @@ const ProductCard = memo(
             onClick={() => addItem(product)}
             className={`p-2 co rounded-full transition ${
               isInCart
-                ? "bg-blue-100 text-blue-600 hover:bg-blue-200"
+                ? "bg-green-100 text-green-600 hover:bg-green-200"
                 : "bg-gray-200 text-black hover:bg-gray/90"
             }`}
           >
