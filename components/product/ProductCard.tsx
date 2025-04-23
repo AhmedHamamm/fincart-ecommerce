@@ -21,7 +21,7 @@ const ProductCard = memo(
             alt={product.title}
             width={300}
             height={300}
-            className="object-cover h-full w-full rounded-xl shadow-sm"
+            className="object-cover h-100 w-full rounded-xl shadow-sm"
             loading="lazy"
           />
           {isInCart && (

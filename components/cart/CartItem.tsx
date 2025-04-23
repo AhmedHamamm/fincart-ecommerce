@@ -16,6 +16,7 @@ const CartItem = memo(({ item }: CartItemProps) => {
         alt={item.title}
         width={100}
         height={100}
+        loading="lazy"
         className="object-cover rounded-lg shadow-sm"
       />
       <div className="flex-1">
